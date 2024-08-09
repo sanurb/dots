@@ -12,17 +12,19 @@ print_status() {
     echo -e "\033[1;34m$1\033[0m"
 }
 
-copy_config_file() {
+ensure_src_file_exists() {
     if [[ ! -f "$SRC_FILE" ]]; then
-        echo "Error: Source configuration file $SRC_FILE does not exist."
-        exit 1
+        print_status "Source configuration file $SRC_FILE does not exist."
+        print_status "Creating a default source configuration file at $SRC_FILE..."
+        touch "$SRC_FILE"
     fi
+}
+
+copy_config_file() {
+    ensure_src_file_exists
 
     if [[ -f "$DEST_FILE" ]]; then
         print_status "Updating existing Wezterm configuration at $DEST_FILE..."
-    else
-        print_status "Creating configuration directory at $CONFIG_DIR..."
-        mkdir -p "$CONFIG_DIR"
     fi
 
     print_status "Copying $CONFIG_FILE to $DEST_FILE..."
