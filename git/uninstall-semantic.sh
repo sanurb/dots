@@ -19,7 +19,6 @@ uninstall_semantic_commits() {
         unregister_git_alias "$alias"
     done
 
-    # Alias de compatibilidad con git-extras
     local compatibility_aliases=('ch' 'rf' 'c' 'd' 'f' 'p' 'x' 'l' 'r' 's' 't')
 
     for alias in "${compatibility_aliases[@]}"; do
