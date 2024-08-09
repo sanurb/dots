@@ -2,10 +2,10 @@
 
 set -euo pipefail
 
-# Variables
 CONFIG_DIR="${HOME}/.config/wezterm"
 CONFIG_FILE=".wezterm.lua"
-SRC_FILE="$(dirname "$BASH_SOURCE")/$CONFIG_FILE"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+SRC_FILE="$SCRIPT_DIR/$CONFIG_FILE"
 DEST_FILE="$CONFIG_DIR/$CONFIG_FILE"
 
 # Helper function to print status messages
@@ -13,7 +13,6 @@ print_status() {
     echo -e "\033[1;34m$1\033[0m"
 }
 
-# Function to handle existing configuration file
 handle_existing_file() {
     local dest_file="$1"
 
@@ -44,7 +43,6 @@ handle_existing_file() {
     esac
 }
 
-# Function to copy the wezterm configuration file
 copy_config_file() {
     if [[ ! -f "$SRC_FILE" ]]; then
         echo "Error: Source configuration file $SRC_FILE does not exist."
@@ -64,10 +62,8 @@ copy_config_file() {
     print_status "Wezterm configuration installed successfully."
 }
 
-# Main entry point of the script
 main() {
     copy_config_file
 }
 
-# Invoke the main function
 main
