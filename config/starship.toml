@@ -1,0 +1,182 @@
+# Configuration file for the Starship prompt
+# See: https://starship.rs/config/
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Use custom format
+format = """
+[╭─](#dcd7ba)$username$hostname in $directory$package$java$python$git_branch$battery$cmd_duration
+[╰─](#dcd7ba)$character """
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+[username]
+style_user = "#76946a bold"
+style_root = "#c34043 bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = 'on [$hostname](bold #7e9cd8) '
+trim_at = "."
+disabled = false
+
+[cmd_duration]
+min_time = 4
+show_milliseconds = false
+disabled = false
+style = "bold italic #957fb8"
+
+# Directory indicator
+[directory]
+read_only = "🔒"
+style = "bold #7e9cd8"
+read_only_style = "bold #c34043"
+truncation_length = 8
+truncation_symbol = "…/"
+format = "[$read_only]($read_only_style)[$path]($style) "
+disabled = false
+
+# git settings
+[git_branch]
+symbol = "🌿 "
+truncation_length = 4
+truncation_symbol = ""
+
+[buf]
+format = '(with [$symbol$version ]($style))'
+
+[bun]
+format = '(via [$symbol($version )]($style))'
+
+[c]
+format = '(via [$symbol($version(-$name) )]($style))'
+
+[cmake]
+format = '(via [$symbol($version )]($style))'
+
+[cobol]
+format = '(via [$symbol($version )]($style))'
+
+[crystal]
+format = '(via [$symbol($version )]($style))'
+
+[daml]
+format = '(via [$symbol($version )]($style))'
+
+[dart]
+format = '(via [$symbol($version )]($style))'
+
+[deno]
+format = '(via [$symbol($version )]($style))'
+
+[dotnet]
+format = '(via [$symbol($version )(🎯 $tfm )]($style))'
+
+[elixir]
+format = '(via [$symbol($version \(OTP $otp_version\) )]($style))'
+
+[elm]
+format = '(via [$symbol($version )]($style))'
+
+[erlang]
+format = '(via [$symbol($version )]($style))'
+
+[fennel]
+format = '(via [$symbol($version )]($style))'
+
+[gleam]
+format = '(via [$symbol($version )]($style))'
+
+[golang]
+format = '(via [$symbol($version )]($style))'
+
+[haskell]
+format = '(via [$symbol($version )]($style))'
+
+[helm]
+format = '(via [$symbol($version )]($style))'
+
+[java]
+format = '(via [$symbol($version )]($style))'
+
+[julia]
+format = '(via [$symbol($version )]($style))'
+
+[kotlin]
+format = '(via [$symbol($version )]($style))'
+
+[lua]
+format = '(via [$symbol($version )]($style))'
+
+[nim]
+format = '(via [$symbol($version )]($style))'
+
+[nodejs]
+format = '(via [$symbol($version )]($style))'
+
+[ocaml]
+format = '(via [$symbol($version )(\($switch_indicator$switch_name\) )]($style))'
+
+[opa]
+format = '(via [$symbol($version )]($style))'
+[package]
+format = '(is [$symbol$version]($style) )'
+
+[perl]
+format = '(via [$symbol($version )]($style))'
+
+[php]
+format = '(via [$symbol($version )]($style))'
+
+[purescript]
+format = '(via [$symbol($version )]($style))'
+
+[python]
+format = '(via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style))'
+
+[quarto]
+format = '(via [$symbol($version )]($style))'
+
+[raku]
+format = '(via [$symbol($version-$vm_version )]($style))'
+
+[red]
+format = '(via [$symbol($version )]($style))'
+
+[rlang]
+format = '(via [$symbol($version )]($style))'
+
+[ruby]
+format = '(via [$symbol($version )]($style))'
+
+[rust]
+format = '(via [$symbol($version )]($style))'
+
+[scala]
+format = '(via [$symbol($version )]($style))'
+
+[swift]
+format = '(via [$symbol($version )]($style))'
+
+[typst]
+format = '(via [$symbol($version )]($style))'
+
+[vagrant]
+format = '(via [$symbol($version )]($style))'
+
+[vlang]
+format = '(via [$symbol($version )]($style))'
+
+[zig]
+format = '(via [$symbol($version )]($style))'
+
+[gcloud]
+disabled = true
+
+[aws]
+disabled = true
