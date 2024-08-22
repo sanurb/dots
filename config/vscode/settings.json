@@ -1,0 +1,190 @@
+{
+    /**
+    * Editor
+    */
+    "editor.copyWithSyntaxHighlighting": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.emptySelectionClipboard": false,
+    "workbench.editor.enablePreview": false,
+    "window.newWindowDimensions": "inherit",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.renderSideBySide": false,
+    "editor.snippetSuggestions": "top",
+    "editor.detectIndentation": false,
+    "window.nativeFullScreen": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": false,
+    "workbench.editor.showTabs": "single",
+    "editor.lineNumbers": "off",
+    "editor.minimap.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.glyphMargin": false,
+    "scm.diffDecorations": "none",
+    "editor.hover.enabled": false,
+    "editor.matchBrackets": "never",
+    "workbench.tips.enabled": false,
+    "editor.colorDecorators": false,
+    "git.decorations.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.lightbulb.enabled": "off",
+    "editor.selectionHighlight": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": "off",
+    "problems.decorations.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "workbench.activityBar.location": "hidden",
+    "breadcrumbs.enabled": true,
+    /**
+    * Typography
+    **/
+    "workbench.colorTheme": "Kanagawa Glass",
+    "editor.fontFamily": "Dank Mono",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontSize": 17,
+    "editor.lineHeight": 0,
+    "chat.editor.fontWeight": "bold",
+    "editor.suggestFontSize": 16,
+    "editor.suggestLineHeight": 28,
+    "terminal.integrated.fontFamily": "Dank Mono",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.lineHeight": 1.5,
+    /**
+    * Color Customization
+    **/
+    "workbench.colorCustomizations": {
+        "editor.background": "#313445",
+        "editorWidget.background": "#1f2738bb",
+        "editorHoverWidget.background": "#2d3750",
+        "sideBar.background": "#313445",
+        "sideBarSectionHeader.background": "#313445",
+        "terminal.background": "#00000000",
+        "editorLineNumber.activeForeground": "#586374",
+        "editorLineNumber.foreground": "#58637466",
+        "editorLineNumber.dimmedForeground": "#586374",
+        "scrollbarSlider.activeBackground": "#6b6f87",
+        "scrollbarSlider.background": "#6b6f87",
+        "scrollbarSlider.hoverBackground": "#6b6f87",
+        "sideBar.border": "#63697355"
+    },
+    /**
+    * Find
+    **/
+    "search.useIgnoreFiles": false,
+    "search.quickOpen.includeHistory": false,
+    /**
+    * Code
+    **/
+    // Include "-" in word selection
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
+    "emmet.includeLanguages": {
+        "blade": "html",
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "files.associations": {
+        "*.ejs": "html",
+        ".php_cs": "php",
+        ".php_cs.dist": "php",
+        ".env*": "dotenv",
+        "*.scss": "postcss"
+    },
+    /**
+    * Prettier
+    **/
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "prettier.requireConfig": false,
+    "prettier.useEditorConfig": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[tailwindcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true
+    },
+    "editor.wordWrapColumn": 120,
+    /**
+    * APC Settings
+    **/
+    "apc.electron": {
+        "backgroundColor": "#2A2E3D",
+        "frame": true,
+        "transparent": true,
+        "titleBarStyle": "hiddenInset",
+        "vibrancy": "ultra-dark",
+        "trafficLightPosition": {
+            "x": 15,
+            "y": 13
+        }
+    },
+    "apc.stylesheet": {
+        "*": "font-family: Dank Mono, monospace;",
+        ".editor .title": "background: transparent !important;",
+        ".actions-container.highlight-toggled": "display: none !important;",
+        ".editor .title .actions-container .action-item a": "visibility: hidden;",
+        ".editor .title .actions-container": "flex-direction: row-reverse;",
+        ".editor .scrollbar .slider ": "visibility: hidden;",
+        ".editor .scrollbar:hover .slider": "visibility: initial;",
+        ".monaco-editor .cursor": "background: linear-gradient(to bottom, #7f00ff, #e100ff) !important;",
+    },
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "editor.guides.indentation": false,
+    "window.customTitleBarVisibility": "never",
+    "editor.tokenColorCustomizations": {
+        "[*Light*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#000"
+                    }
+                }
+            ]
+        },
+        "[*Dark*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#fff"
+                    }
+                }
+            ]
+        },
+        "textMateRules": [
+            {
+                "scope": "keyword.other.dotenv",
+                "settings": {
+                    "foreground": "#FF000000"
+                }
+            }
+        ]
+    },
+    "workbench.settings.applyToAllProfiles": [
+        "workbench.colorCustomizations"
+    ]
+}
