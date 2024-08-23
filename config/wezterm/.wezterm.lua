@@ -94,6 +94,10 @@ end
 -- Main configuration table
 local config = wezterm.config_builder and wezterm.config_builder() or {}
 
+if wezterm.target_triple:find("windows") then
+  config.default_prog = { "wsl.exe" }
+end
+
 -- Apply color scheme
 config.colors = get_color_scheme()
 
@@ -108,24 +112,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 2000 }
 config.keys = get_key_bindings()
 
--- Mouse bindings
-config.mouse_bindings = {
-  {
-    event = { Up = { streak = 1, button = 'Left' } },
-    mods = 'NONE',
-    action = wezterm.action.CompleteSelection('ClipboardAndPrimarySelection'),
-  },
-  {
-    event = { Up = { streak = 1, button = 'Left' } },
-    mods = 'CMD',
-    action = wezterm.action.OpenLinkAtMouseCursor,
-  },
-  {
-    event = { Down = { streak = 1, button = 'Right' } },
-    mods = 'NONE',
-    action = wezterm.action.PasteFrom("Clipboard"),
-  },
-}
+
 
 -- Tab bar configuration
 config.tab_bar_at_bottom = true
