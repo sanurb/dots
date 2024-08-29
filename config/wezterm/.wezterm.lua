@@ -38,22 +38,7 @@ local function get_key_bindings()
     { mods = "LEADER", key = "UpArrow", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
     { mods = "LEADER", key = "r", action = wezterm.action.ReloadConfiguration },
     { mods = "LEADER", key = "f", action = wezterm.action.ShowLauncher },
-    -- Toggle Zen Mode (hide/show the tab bar and other UI elements)
-    {
-      mods = "LEADER",
-      key = "z",
-      action = wezterm.action_callback(function(window, _)
-        local overrides = window:get_config_overrides() or {}
-        if not overrides.hide_tab_bar_if_only_one_tab then
-          overrides.hide_tab_bar_if_only_one_tab = true
-          overrides.window_decorations = "NONE"
-        else
-          overrides.hide_tab_bar_if_only_one_tab = false
-          overrides.window_decorations = "RESIZE"
-        end
-        window:set_config_overrides(overrides)
-      end),
-    },
+    { mods = "LEADER", key = "z", action = wezterm.action.TogglePaneZoomState },
   }
 
   -- Add key bindings for activating tabs with leader + number
