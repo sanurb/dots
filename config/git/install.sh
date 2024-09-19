@@ -3,11 +3,19 @@
 set -euo pipefail
 
 CONFIG_DIR="$HOME/.config/git"
+GIT_REPO_BASE_URL="https://raw.githubusercontent.com/sanurb/dots/main/config/git"
 
 install_ignore_file() {
     mkdir -p "$CONFIG_DIR"
-    cp "$(dirname "$BASH_SOURCE")/ignore" "$CONFIG_DIR/ignore"
-    echo "Global gitignore file installed in $CONFIG_DIR/ignore"
+    local ignore_file_url="$GIT_REPO_BASE_URL/ignore"
+
+    curl -fsSL "$ignore_file_url" -o "$CONFIG_DIR/ignore"
+    if [[ -f "$CONFIG_DIR/ignore" ]]; then
+        echo "Global gitignore file downloaded and installed in $CONFIG_DIR/ignore"
+    else
+        echo "Failed to download gitignore file." >&2
+        exit 1
+    fi
 }
 
 configure_git_globals() {
