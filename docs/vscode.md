@@ -2,6 +2,8 @@
 
 This documentation provides a detailed overview of the custom keybindings and settings configured in VSCode. The configurations are designed to enhance productivity by enabling efficient navigation, editing, and file management through Vim motions and custom keybindings.
 
+- [My config](https://github.com/sanurb/dots/tree/main/config/vscode)
+
 **Table of Contents**
 
 1. [Overview](#overview)
