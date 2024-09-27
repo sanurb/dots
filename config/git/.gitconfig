@@ -1,0 +1,121 @@
+[user]
+	email = david.urbano@uao.edu.co
+	name = David Urbano
+
+[color]
+	ui = true
+
+[push]
+	default = simple
+
+[pull]
+	rebase = true
+
+[remote "origin"]
+	prune = true
+
+[commit]
+	verbose = true
+
+[diff]
+	algorithm = histogram
+  compactionHeuristic = true
+  submodule = log
+
+[alias]
+	a = add
+	co = checkout
+	ci = commit -v
+	flush = clean -fd
+	flush-all = clean -fdx
+	sts = status -s
+	uncommit = reset --soft HEAD^
+	amend = commit --amend
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	p = push
+	l = pull
+	bisect-fixed = bisect start --term-new=fixed --term-old=broken
+	cpick = cherry-pick
+	latest-tag = describe --tags --abbrev=0
+	prev = checkout HEAD^1
+	main = !git stash && git co main && git pull && git prune-local && git stash pop
+	mail = config user.email
+	next = "!sh -c 'git log --reverse --pretty=%H | awk \"//{getline;print}\" | xargs git checkout'"
+	prune-merged = !git branch --merged main | grep -v "\\* main" | xargs -n 1 git branch -d
+  prune-local = !git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
+  sub = submodule update --init --recursive
+	review = "!f() { git difftool --tool=kdiff3 --dir-diff $1..; }; f"
+	bye = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	chore = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"chore: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"chore(${1}): ${@:2}\"; else git commit -m \"chore: ${@}\"; fi }; f"
+	docs = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"docs: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"docs(${1}): ${@:2}\"; else git commit -m \"docs: ${@}\"; fi }; f"
+	feat = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"feat: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"feat(${1}): ${@:2}\"; else git commit -m \"feat: ${@}\"; fi }; f"
+	fix = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"fix: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"fix(${1}): ${@:2}\"; else git commit -m \"fix: ${@}\"; fi }; f"
+	localize = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"localize: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"localize(${1}): ${@:2}\"; else git commit -m \"localize: ${@}\"; fi }; f"
+	perf = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"perf: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"perf(${1}): ${@:2}\"; else git commit -m \"perf: ${@}\"; fi }; f"
+	refactor = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"refactor: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"refactor(${1}): ${@:2}\"; else git commit -m \"refactor: ${@}\"; fi }; f"
+	style = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"style: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"style(${1}): ${@:2}\"; else git commit -m \"style: ${@}\"; fi }; f"
+	test = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"test: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"test(${1}): ${@:2}\"; else git commit -m \"test: ${@}\"; fi }; f"
+	x = !git fix
+	t = !git test
+	s = !git style
+	r = !git refactor
+	p = !git perf
+	l = !git localize
+	f = !git feat
+	d = !git docs
+	c = !git chore
+	ch = !git chore
+	rf = !git refactor
+	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+	authors = !git shortlog -sn --all --no-merges
+	count-lines = "!sh -c 'git log --author=\"\" --pretty=tformat: --numstat | awk \"{ add += $1; subs += $2; loc += $1 - $2 } END { printf \\\"added lines: %s, removed lines: %s, total lines: %s\\\", add, subs, loc }\"'"
+  wtc = !sh -c 'git commit $@ -m \""`curl -s https://whatthecommit.com/index.txt`"\"' -
+
+[apply]
+	whitespace = fix
+
+[core]
+	editor = nvim
+	pager = delta --dark
+	excludesFile = ~/.config/git/ignore
+	ignorecase = false
+
+[merge]
+	conflictstyle = diff3
+	log = true
+
+[difftool]
+	prompt = false
+
+[credential]
+  # For WSL2
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+  #helper = cache --timeout 3600
+
+[help]
+	autocorrect = 1
+
+[include]
+	path = ~/.config/delta/delta.gitconfig
+
+[delta]
+	features = mantis-shrimp
+
+[rerere]
+	enabled = true
+
+[transfer]
+	fsckObjects = true
+
+[fetch]
+	fsckObjects = true
+
+[receive]
+  fsckObjects = true
+
+[status]
+  submoduleSummary = true
+
+[submodule]
+	recurse = true
+
