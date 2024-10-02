@@ -19,8 +19,8 @@
 
 [diff]
 	algorithm = histogram
-  compactionHeuristic = true
-  submodule = log
+	compactionHeuristic = true
+	submodule = log
 
 [alias]
 	a = add
@@ -42,8 +42,8 @@
 	mail = config user.email
 	next = "!sh -c 'git log --reverse --pretty=%H | awk \"//{getline;print}\" | xargs git checkout'"
 	prune-merged = !git branch --merged main | grep -v "\\* main" | xargs -n 1 git branch -d
-  prune-local = !git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
-  sub = submodule update --init --recursive
+	prune-local = !git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d
+	sub = submodule update --init --recursive
 	review = "!f() { git difftool --tool=kdiff3 --dir-diff $1..; }; f"
 	bye = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 	chore = "!f() { [[ -z \"$GIT_PREFIX\" ]] || cd \"$GIT_PREFIX\" && if [ \"$#\" == 0 ]; then git commit -m \"chore: \" --edit; elif [ \"$#\" == 2 ]; then git commit -m \"chore(${1}): ${@:2}\"; else git commit -m \"chore: ${@}\"; fi }; f"
@@ -69,7 +69,7 @@
 	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
 	authors = !git shortlog -sn --all --no-merges
 	count-lines = "!sh -c 'git log --author=\"\" --pretty=tformat: --numstat | awk \"{ add += $1; subs += $2; loc += $1 - $2 } END { printf \\\"added lines: %s, removed lines: %s, total lines: %s\\\", add, subs, loc }\"'"
-  wtc = !sh -c 'git commit $@ -m \""`curl -s https://whatthecommit.com/index.txt`"\"' -
+	wtc = !sh -c 'git commit $@ -m \""`curl -s https://whatthecommit.com/index.txt`"\"' -
 
 [apply]
 	whitespace = fix
@@ -88,9 +88,9 @@
 	prompt = false
 
 [credential]
-  # For WSL2
+	# For WSL2
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
-  #helper = cache --timeout 3600
+	#helper = cache --timeout 3600
 
 [help]
 	autocorrect = 1
@@ -111,11 +111,11 @@
 	fsckObjects = true
 
 [receive]
-  fsckObjects = true
+	fsckObjects = true
 
 [status]
-  submoduleSummary = true
+	submoduleSummary = true
 
 [submodule]
-	recurse = true
+  recurse = true
 
